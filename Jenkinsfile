@@ -12,7 +12,7 @@
         stage('Run Python Script') {
             steps {
                 // Execute the Python script
-                sh 'python src/main.py'
+                bat 'python src/main.py'
             }
         }
     }

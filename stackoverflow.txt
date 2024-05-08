@@ -1,0 +1,14 @@
+https://stackoverflow.com/questions/38827523/jenkins-input-pipeline-step-filled-via-post-with-csrf-howto?answertab=modifieddesc#tab-top
+curl -X POST -H "Jenkins-Crumb:${JENKINS_CRUMB}" -d json='{"parameter": {"name": "${PARAMETER_NAME}", "value": "${PARAMETER_VALUE}"}}' -d proceed='${SUBMIT_CAPTION}' 'http://j${JENKINS_URL}/job/${JOB_NAME}/${BUILD_ID}/input/${INPUT_ID}/submit'
+
+curl -X POST -H "Jenkins-Crumb:${JENKINS_CRUMB}" http://${JENKINS_URL}/job/${JOB_NAME}/${BUILD_ID}/input/${INPUT_ID}/abort
+
+
+curl -X POST -H "Jenkins-Crumb:${JENKINS_CRUMB}" http://${JENKINS_URL}/job/${JOB_NAME}/${BUILD_ID}/input/${INPUT_ID}/proceedEmpty
+
+print env.getEnvironment()
+
+{BUILD_DISPLAY_NAME=#41, BUILD_ID=41, BUILD_NUMBER=41, BUILD_TAG=jenkins-FirstPipeline-41, BUILD_URL=http://localhost:8080/job/FirstPipeline/41/, CI=true, CLASSPATH=, cmd=C:\Windows\System32\cmd.exe, HUDSON_HOME=C:\ProgramData\Jenkins\.jenkins, HUDSON_SERVER_COOKIE=9ff56d50c34a57d5, HUDSON_URL=http://localhost:8080/, JENKINS_HOME=C:\ProgramData\Jenkins\.jenkins, JENKINS_SERVER_COOKIE=9ff56d50c34a57d5, JENKINS_URL=http://localhost:8080/, JOB_BASE_NAME=FirstPipeline, JOB_DISPLAY_URL=http://localhost:8080/job/FirstPipeline/display/redirect, JOB_NAME=FirstPipeline, JOB_URL=http://localhost:8080/job/FirstPipeline/, python=C:\Users\Steve Khanna\AppData\Local\Microsoft\WindowsApps\python.exe, RUN_ARTIFACTS_DISPLAY_URL=http://localhost:8080/job/FirstPipeline/41/display/redirect?page=artifacts, RUN_CHANGES_DISPLAY_URL=http://localhost:8080/job/FirstPipeline/41/display/redirect?page=changes, RUN_DISPLAY_URL=http://localhost:8080/job/FirstPipeline/41/display/redirect, RUN_TESTS_DISPLAY_URL=http://localhost:8080/job/FirstPipeline/41/display/redirect?page=tests}
+
+
+https://www.jenkins.io/doc/book/security/csrf-protection/#working-with-scripted-clients
